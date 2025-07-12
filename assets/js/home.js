@@ -94,9 +94,9 @@ function initServices() {
   });
 }
 
-/**===============================
+/**=================================
  * Benefits Cards Scroll Animation
- ================================*/
+ ==================================*/
 function initBenefitsCards() {
   const benefitsSection = document.querySelector(".benefits");
   const cardsContainer = document.querySelector(".benefits__cards-container");
@@ -232,7 +232,6 @@ function initBenefitsCards() {
     }
   });
 
-  // Initialize section height
   updateSectionHeight();
 }
 
