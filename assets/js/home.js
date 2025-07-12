@@ -107,16 +107,47 @@ function initBenefitsCards() {
   let isInSection = false;
   let sectionTop = 0;
 
-  // Set initial height for the section to allow scrolling
-  const SCROLL_HEIGHT = window.innerHeight * 25;
-  benefitsSection.style.height = `${SCROLL_HEIGHT}px`;
+  // Only run animation on screens larger than 768px
+  function shouldRunAnimation() {
+    return window.innerWidth > 768;
+  }
+
+  // Set initial height for the section to allow scrolling - only on large screens
+  function updateSectionHeight() {
+    if (shouldRunAnimation()) {
+      const SCROLL_HEIGHT = window.innerHeight * 25;
+      benefitsSection.style.height = `${SCROLL_HEIGHT}px`;
+    } else {
+      benefitsSection.style.height = ""; // Reset to CSS height for mobile
+    }
+  }
 
   function handleScroll() {
+    // Exit early if screen is too small - let CSS handle mobile layout
+    if (!shouldRunAnimation()) {
+      // Reset any applied styles on small screens
+      if (isInSection) {
+        isInSection = false;
+        cardsContainer.style.position = "";
+        cardsContainer.style.top = "";
+        cardsContainer.style.left = "";
+        cardsContainer.style.right = "";
+        cardsContainer.style.height = "";
+
+        cards.forEach((card) => {
+          card.style.transform = "";
+          card.style.opacity = "";
+        });
+      }
+      return;
+    }
+
     const scrollY = window.scrollY;
     const rect = benefitsSection.getBoundingClientRect();
     sectionTop = scrollY + rect.top;
 
-    const TRIGGER_OFFSET = window.innerHeight * 0.6; // 25vh after section starts
+    const TRIGGER_OFFSET = window.innerHeight * 0.6;
+    const SCROLL_HEIGHT = window.innerHeight * 25;
 
     // Check if we're in the section with offset
     const inSection =
@@ -138,11 +169,12 @@ function initBenefitsCards() {
       cardsContainer.style.top = "";
       cardsContainer.style.left = "";
       cardsContainer.style.right = "";
-      cardsContainer.style.bottom = "";
+      cardsContainer.style.height = "";
 
       // Reset all transforms
       cards.forEach((card) => {
         card.style.transform = "";
+        card.style.opacity = "";
       });
       return;
     }
@@ -193,9 +225,15 @@ function initBenefitsCards() {
   window.addEventListener("scroll", requestTick, { passive: true });
 
   window.addEventListener("resize", () => {
-    const newScrollHeight = window.innerHeight * 25;
-    benefitsSection.style.height = `${newScrollHeight}px`;
+    updateSectionHeight();
+    // Force a scroll check on resize to handle screen size changes
+    if (!shouldRunAnimation() && isInSection) {
+      handleScroll();
+    }
   });
+
+  // Initialize section height
+  updateSectionHeight();
 }
 
 document.addEventListener("DOMContentLoaded", initHome);

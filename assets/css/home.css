@@ -158,6 +158,11 @@
  * HERO BREAKPOINTS
  ===================*/
 @media (max-width: 480px) {
+  .hero__content {
+    padding: 1rem;
+    max-width: 100%;
+  }
+
   .hero__cta {
     flex-direction: column;
   }
@@ -1132,11 +1137,16 @@
     min-height: auto;
   }
 
+  .benefits__header {
+    margin-bottom: 0;
+  }
+
   .benefits__cards-container {
+    margin: 0;
     height: auto;
     position: static;
     flex-direction: column;
-    padding: var(--space-lg);
+    padding: 0 var(--space-lg);
     background: var(--color-light);
   }
 
@@ -1298,6 +1308,7 @@
  ===============*/
 .cta {
   width: 100vw;
+  min-height: 100%;
   position: relative;
   background: var(--color-light);
 }
