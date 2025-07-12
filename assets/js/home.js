@@ -1,7 +1,7 @@
 /**===========================
  * Initializate all systems.
  ============================*/
-function init() {
+function initHome() {
   initHeroCarousel();
   initHeroSearchlight();
   initServices();
@@ -93,4 +93,4 @@ function initServices() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", init);
+document.addEventListener("DOMContentLoaded", initHome);
