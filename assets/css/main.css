@@ -323,15 +323,15 @@ img {
   align-items: center;
   background: transparent;
   backdrop-filter: blur(0px);
+  padding: var(--space-sm) 2rem;
   grid-template-columns: 1fr auto;
   transition: all var(--transition-slow);
-  padding: var(--space-sm) clamp(2rem, 5vw, 5rem);
 }
 
 .nav--scrolled {
   backdrop-filter: blur(20px);
   background: var(--color-dark);
-  padding: var(--space-xs) clamp(2rem, 5vw, 5rem);
+  padding: var(--space-xs) 2rem;
 }
 
 .logo {
@@ -538,7 +538,7 @@ img {
 }
 
 .nav__link--primary span {
-  font-weight: 800;
+  font-weight: 500;
   letter-spacing: 0.02em;
   color: var(--color-dark);
   text-transform: uppercase;
@@ -547,6 +547,7 @@ img {
 }
 
 .nav__link--primary:hover span {
+  font-weight: 800;
   letter-spacing: 0.1em;
   color: var(--color-gray-600);
 }
