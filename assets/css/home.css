@@ -159,8 +159,8 @@
  ===================*/
 @media (max-width: 480px) {
   .hero__content {
-    padding: 2rem 1rem 1rem;
     max-width: 100%;
+    padding: 2rem 1rem 1rem;
   }
 
   .hero__cta {
