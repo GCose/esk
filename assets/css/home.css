@@ -125,8 +125,8 @@
 }
 
 /**==================
-   * ANIMATION STYLES
-   ===================*/
+ * ANIMATION STYLES
+ ===================*/
 @keyframes heroReveal {
   to {
     opacity: 1;
@@ -155,8 +155,8 @@
 }
 
 /**===================
-   * HERO BREAKPOINTS
-   ===================*/
+ * HERO BREAKPOINTS
+ ===================*/
 @media (max-width: 480px) {
   .hero__cta {
     flex-direction: column;
@@ -164,8 +164,8 @@
 }
 
 /**====================
-   * PHILOSOPHY STYLES
-   =====================*/
+ * PHILOSOPHY STYLES
+ =====================*/
 .philosophy {
   width: 100vw;
   position: relative;
@@ -295,8 +295,8 @@
 }
 
 /**=====================
-   * BREAKPOINTS STYLES
-   =====================*/
+ * BREAKPOINTS STYLES
+ =====================*/
 @media (max-width: 1200px) {
   .philosophy__container {
     margin: 0;
@@ -339,8 +339,8 @@
 }
 
 /**==================
-   * SERVICES STYLES
-   ===================*/
+ * SERVICES STYLES
+ ===================*/
 .services {
   width: 100vw;
   position: relative;
@@ -505,8 +505,8 @@
 }
 
 /**====================
-   * BREAKPOINTS STYLES
-   ====================*/
+ * BREAKPOINTS STYLES
+ ====================*/
 @media (max-width: 1200px) {
   .services__grid {
     display: block;
@@ -530,8 +530,8 @@
 }
 
 /**================
-   * PROCESS STYLES
-   =================*/
+ * PROCESS STYLES
+ =================*/
 .process {
   width: 100vw;
   position: relative;
@@ -704,8 +704,8 @@
 }
 
 /**=====================
-   * BREAKPOINTS STYLES
-   =====================*/
+ * BREAKPOINTS STYLES
+ =====================*/
 @media (max-width: 1200px) {
   .process__container {
     margin: 0;
@@ -774,8 +774,8 @@
 }
 
 /**================
-   * CLIENTS STYLES
-   =================*/
+ * CLIENTS STYLES
+ =================*/
 .clients {
   width: 100vw;
   position: relative;
@@ -921,8 +921,8 @@
 }
 
 /**===================
-   * CLIENTS BREAKPOINTS
-   ===================*/
+ * BREAKPOINTS STYLES
+ ===================*/
 @media (max-width: 1200px) {
   .clients__container {
     margin: 0;
