@@ -569,7 +569,6 @@
   width: 100%;
   display: flex;
   min-height: 100vh;
-  margin-top: var(--space-lg);
 }
 
 .process__spread:last-child {
@@ -1083,19 +1082,20 @@
 }
 
 .benefits__card-title {
-  font-weight: 600;
+  font-weight: 800;
+  line-height: 1.2;
   letter-spacing: 0.02em;
   color: var(--color-dark);
   text-transform: uppercase;
-  font-size: var(--font-title-md);
-  line-height: 1.2;
+  font-size: var(--font-title-lg);
 }
 
 .benefits__card-text {
   font-weight: 400;
+  line-height: 1.4;
+  text-transform: uppercase;
   color: var(--color-gray-600);
   font-size: var(--font-body-md);
-  line-height: 1.4;
 }
 
 /**===================
@@ -1177,5 +1177,118 @@
 
   .benefits__card-content {
     padding: var(--space-md);
+  }
+}
+
+/**================
+ * VISION STYLES
+ =================*/
+.vision {
+  width: 100vw;
+  position: relative;
+  background: var(--color-dark);
+  border-bottom: var(--border-width) solid var(--color-gray-800);
+}
+
+.vision__container {
+  position: relative;
+}
+
+.vision__spread {
+  width: 100%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 100px 1fr 100px;
+}
+
+.vision__page-center {
+  width: 100%;
+  display: grid;
+  margin: 0 auto;
+  align-items: start;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  background: var(--color-dark);
+  gap: var(--space-responsive-xl);
+  padding: var(--space-responsive-3xl);
+  border-top: var(--border-width) solid var(--color-gray-800);
+}
+
+.vision__content {
+  text-align: center;
+}
+
+.vision__content .section__subtitle {
+  color: var(--color-gray-400);
+}
+
+.vision__content .section__title {
+  color: var(--color-light);
+}
+
+.vision__content .body__text {
+  color: var(--color-gray-300);
+}
+
+.vision__image {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  border-radius: var(--border-radius);
+}
+
+.vision__accent-left {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  background: var(--color-gray-900);
+  border-right: var(--border-width) solid var(--color-gray-800);
+}
+
+.vision__accent-right {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  background: var(--color-gray-900);
+  border-left: var(--border-width) solid var(--color-gray-800);
+}
+
+.vision__accent-text {
+  font-weight: 500;
+  line-height: 0.8;
+  letter-spacing: 0.1em;
+  transform: rotate(180deg);
+  writing-mode: vertical-rl;
+  color: var(--color-gray-600);
+  font-size: var(--font-display-md);
+}
+
+/**=====================
+ * BREAKPOINTS STYLES
+ =====================*/
+@media (max-width: 1200px) {
+  .vision__spread {
+    display: block;
+  }
+
+  .vision__page-center {
+    width: 100%;
+    max-width: none;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .vision__accent-left,
+  .vision__accent-right {
+    width: 100%;
+    height: auto;
+    padding: var(--space-responsive-xl);
+    border-bottom: var(--border-width) solid var(--color-gray-800);
+  }
+
+  .vision__accent-text {
+    transform: rotate(0deg);
+    writing-mode: horizontal-tb;
+    font-size: var(--space-responsive-xl);
   }
 }
