@@ -963,3 +963,219 @@
     padding: var(--space-lg) var(--space-sm);
   }
 }
+
+/**================
+ * BENEFITS STYLES
+ =================*/
+.benefits {
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+  background: var(--color-gray-100);
+}
+
+.benefits__header {
+  text-align: center;
+  margin-bottom: 10rem;
+  background: var(--color-light);
+  padding: var(--space-responsive-3xl) var(--space-responsive-2xl);
+}
+
+.benefits__header .section__subtitle {
+  color: var(--color-gray-500);
+}
+
+.benefits__header .section__title {
+  margin-bottom: 0;
+  color: var(--color-dark);
+}
+
+.benefits__cards-container {
+  height: 100vh;
+  display: flex;
+  padding-top: 10rem;
+  margin-left: 6rem;
+  position: relative;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  background: var(--color-gray-100);
+}
+
+.benefits__card {
+  overflow: hidden;
+  position: absolute;
+  padding-bottom: 2rem;
+  transition: all 0.3s ease;
+  background: var(--color-light);
+  width: clamp(600px, 80vw, 1300px);
+  height: clamp(500px, 80vh, 1300px);
+  border-bottom: 1px solid var(--color-dark);
+}
+
+.benefits__card--1 {
+  top: 50%;
+  left: 50%;
+  z-index: 5;
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.benefits__card--2 {
+  z-index: 4;
+  opacity: 0.9;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  transform: translate(-50%, -50%);
+}
+
+.benefits__card--3 {
+  z-index: 3;
+  opacity: 0.8;
+  left: calc(50% - 60px);
+  top: calc(50% - 60px);
+  transform: translate(-50%, -50%);
+}
+
+.benefits__card--4 {
+  z-index: 2;
+  opacity: 0.7;
+  top: calc(50% - 90px);
+  left: calc(50% - 90px);
+  transform: translate(-50%, -50%);
+}
+
+.benefits__card--5 {
+  z-index: 1;
+  opacity: 0.6;
+  left: calc(50% - 120px);
+  top: calc(50% - 120px);
+  transform: translate(-50%, -50%);
+}
+
+.benefits__card-image {
+  width: 100%;
+  height: 85%;
+  overflow: hidden;
+  position: relative;
+}
+
+.benefits__card-overlay {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: linear-gradient(
+    135deg,
+    rgba(42, 42, 42, 0.3) 0%,
+    rgba(42, 42, 42, 0.7) 100%
+  );
+}
+
+.benefits__card-content {
+  height: 45%;
+  display: grid;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+  grid-template-rows: auto 1fr;
+  background: var(--color-light);
+}
+
+.benefits__card-title {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-dark);
+  text-transform: uppercase;
+  font-size: var(--font-title-md);
+  line-height: 1.2;
+}
+
+.benefits__card-text {
+  font-weight: 400;
+  color: var(--color-gray-600);
+  font-size: var(--font-body-md);
+  line-height: 1.4;
+}
+
+/**===================
+ * BREAKPOINT STYLES
+ ====================*/
+@media (max-width: 1200px) {
+  .benefits__container {
+    margin: 0;
+  }
+
+  .benefits__card--2 {
+    top: calc(50% - 25px);
+    left: calc(50% - 25px);
+  }
+
+  .benefits__card--3 {
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+  }
+
+  .benefits__card--4 {
+    top: calc(50% - 75px);
+    left: calc(50% - 75px);
+  }
+
+  .benefits__card--5 {
+    top: calc(50% - 100px);
+    left: calc(50% - 100px);
+  }
+}
+
+@media (max-width: 768px) {
+  .benefits {
+    min-height: auto;
+  }
+
+  .benefits__cards-container {
+    height: auto;
+    position: static;
+    flex-direction: column;
+    padding: var(--space-lg);
+    background: var(--color-light);
+  }
+
+  .benefits__card {
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: auto !important;
+    left: auto !important;
+    opacity: 1 !important;
+    z-index: auto !important;
+    transform: none !important;
+    margin-bottom: var(--space-lg);
+  }
+
+  .benefits__card:last-child {
+    margin-bottom: 0;
+  }
+
+  .benefits__card-image {
+    height: 200px;
+  }
+
+  .benefits__card-content {
+    height: auto;
+    grid-template-rows: auto auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .benefits__card {
+    height: auto;
+  }
+
+  .benefits__card-image {
+    height: 150px;
+  }
+
+  .benefits__card-content {
+    padding: var(--space-md);
+  }
+}

@@ -5,6 +5,7 @@ function initHome() {
   initHeroCarousel();
   initHeroSearchlight();
   initServices();
+  initBenefitsCards();
 }
 
 /**=========================
@@ -90,6 +91,110 @@ function initServices() {
     servicesImageWebp.srcset = defaultImagePath + ".webp";
     servicesImageJpg.src = defaultImagePath + ".jpg";
     servicesImageJpg.alt = "Custom Built-in Kitchen";
+  });
+}
+
+/**===============================
+ * Benefits Cards Scroll Animation
+ ================================*/
+function initBenefitsCards() {
+  const benefitsSection = document.querySelector(".benefits");
+  const cardsContainer = document.querySelector(".benefits__cards-container");
+  const cards = document.querySelectorAll(".benefits__card");
+
+  if (!benefitsSection || !cardsContainer || cards.length !== 5) return;
+
+  let isInSection = false;
+  let sectionTop = 0;
+
+  // Set initial height for the section to allow scrolling
+  const SCROLL_HEIGHT = window.innerHeight * 25;
+  benefitsSection.style.height = `${SCROLL_HEIGHT}px`;
+
+  function handleScroll() {
+    const scrollY = window.scrollY;
+    const rect = benefitsSection.getBoundingClientRect();
+    sectionTop = scrollY + rect.top;
+
+    const TRIGGER_OFFSET = window.innerHeight * 0.6; // 25vh after section starts
+
+    // Check if we're in the section with offset
+    const inSection =
+      scrollY >= sectionTop + TRIGGER_OFFSET &&
+      scrollY <= sectionTop + SCROLL_HEIGHT;
+
+    if (inSection && !isInSection) {
+      // Entering section - fix the container
+      isInSection = true;
+      cardsContainer.style.position = "fixed";
+      cardsContainer.style.top = "12rem";
+      cardsContainer.style.left = "6rem";
+      cardsContainer.style.right = "0";
+      cardsContainer.style.height = "calc(100vh - 16vh)";
+    } else if (!inSection && isInSection) {
+      // Leaving section - reset
+      isInSection = false;
+      cardsContainer.style.position = "";
+      cardsContainer.style.top = "";
+      cardsContainer.style.left = "";
+      cardsContainer.style.right = "";
+      cardsContainer.style.bottom = "";
+
+      // Reset all transforms
+      cards.forEach((card) => {
+        card.style.transform = "";
+      });
+      return;
+    }
+
+    if (!isInSection) return;
+
+    // Calculate scroll progress within section
+    const sectionProgress = (scrollY - sectionTop) / SCROLL_HEIGHT;
+    const cardProgress = sectionProgress * 4;
+    const currentCard = Math.floor(cardProgress);
+    const transitionProgress = cardProgress - currentCard;
+
+    // Update cards based on progress
+    cards.forEach((card, index) => {
+      card.style.opacity = "1";
+      if (index === currentCard && currentCard < 4) {
+        // Active card moving down
+        const moveDown = transitionProgress * window.innerHeight;
+        card.style.transform = `translate(-50%, calc(-50% + ${moveDown}px))`;
+      } else if (index === currentCard + 1 && currentCard < 4) {
+        // Next card coming into view
+        const moveUp = (1 - transitionProgress) * -100;
+        card.style.transform = `translate(-50%, calc(-50% + ${moveUp}px))`;
+      } else if (index < currentCard) {
+        // Cards that have moved past
+        card.style.transform = `translate(-50%, calc(-50% + ${window.innerHeight}px))`;
+      } else if (index === 4 && currentCard >= 4) {
+        // Final card stays in view
+        card.style.transform = `translate(-50%, -50%)`;
+      } else {
+        // Cards waiting in stack - keep original positioning
+        card.style.transform = "";
+      }
+    });
+  }
+
+  let ticking = false;
+  function requestTick() {
+    if (!ticking) {
+      requestAnimationFrame(handleScroll);
+      ticking = true;
+      setTimeout(() => {
+        ticking = false;
+      }, 16);
+    }
+  }
+
+  window.addEventListener("scroll", requestTick, { passive: true });
+
+  window.addEventListener("resize", () => {
+    const newScrollHeight = window.innerHeight * 25;
+    benefitsSection.style.height = `${newScrollHeight}px`;
   });
 }
 
