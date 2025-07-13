@@ -146,7 +146,7 @@ function initBenefitsCards() {
     const rect = benefitsSection.getBoundingClientRect();
     sectionTop = scrollY + rect.top;
 
-    const TRIGGER_OFFSET = window.innerHeight * 0.6;
+    const TRIGGER_OFFSET = window.innerHeight * 0.7;
     const SCROLL_HEIGHT = window.innerHeight * 25;
 
     // Check if we're in the section with offset

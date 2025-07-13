@@ -1284,6 +1284,7 @@
     max-width: none;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
+    padding: var(--space-responsive-3xl) 1rem;
   }
 
   .vision__accent-left,
