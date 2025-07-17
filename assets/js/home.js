@@ -115,7 +115,7 @@ function initBenefitsCards() {
   // Set initial height for the section to allow scrolling - only on large screens
   function updateSectionHeight() {
     if (shouldRunAnimation()) {
-      const SCROLL_HEIGHT = window.innerHeight * 25;
+      const SCROLL_HEIGHT = window.innerHeight * 5;
       benefitsSection.style.height = `${SCROLL_HEIGHT}px`;
     } else {
       benefitsSection.style.height = ""; // Reset to CSS height for mobile
@@ -147,7 +147,7 @@ function initBenefitsCards() {
     sectionTop = scrollY + rect.top;
 
     const TRIGGER_OFFSET = window.innerHeight * 0.7;
-    const SCROLL_HEIGHT = window.innerHeight * 25;
+    const SCROLL_HEIGHT = window.innerHeight * 5;
 
     // Check if we're in the section with offset
     const inSection =

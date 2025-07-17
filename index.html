@@ -387,11 +387,27 @@
                 </p>
               </div>
               <div class="process__image">
-                <img
-                  alt="Design Phase"
-                  class="image__full"
-                  src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                />
+                <picture id="servicesImage">
+                  <source
+                    type="image/avif"
+                    id="servicesImageAvif"
+                    srcset="
+                      /assets/images/home-page/process-section/process-2/process-2.avif
+                    "
+                  />
+                  <source
+                    id="servicesImageWebp"
+                    type="image/webp"
+                    srcset="
+                      /assets/images/home-page/process-section/process-2/process-2.webp
+                    "
+                  />
+                  <img
+                    class="image__full"
+                    alt="Design Phase"
+                    src="/assets/images/home-page/process-section/process-2/process-2.jpg"
+                  />
+                </picture>
               </div>
             </div>
           </div>
@@ -827,7 +843,7 @@
     <!--==================== End of Footer ====================-->
 
     <!--==================== Script Link ====================-->
-    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/utils.js"></script>
     <script src="/assets/js/home.js"></script>
     <!--==================== End of Script Link ====================-->
   </body>
