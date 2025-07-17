@@ -354,11 +354,27 @@
                 </p>
               </div>
               <div class="process__image">
-                <img
-                  class="image__full"
-                  alt="Initial Consultation"
-                  src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                />
+                <picture id="servicesImage">
+                  <source
+                    type="image/avif"
+                    id="servicesImageAvif"
+                    srcset="
+                      /assets/images/home-page/process-section/process-1/process-1.avif
+                    "
+                  />
+                  <source
+                    id="servicesImageWebp"
+                    type="image/webp"
+                    srcset="
+                      /assets/images/home-page/process-section/process-1/process-1.webp
+                    "
+                  />
+                  <img
+                    class="image__full"
+                    alt="Initial Consultation"
+                    src="/assets/images/home-page/process-section/process-1/process-1.jpg"
+                  />
+                </picture>
               </div>
             </div>
 
