@@ -98,141 +98,161 @@ function initServices() {
  * Benefits Cards Scroll Animation
  ==================================*/
 function initBenefitsCards() {
-  const benefitsSection = document.querySelector(".benefits");
-  const cardsContainer = document.querySelector(".benefits__cards-container");
-  const cards = document.querySelectorAll(".benefits__card");
+  const section = document.querySelector(".benefits");
+  const container = document.querySelector(".benefits__cards-container");
+  const card1 = document.querySelector(".benefits__card--1");
+  const sideCards = [
+    document.querySelector(".benefits__card--2"),
+    document.querySelector(".benefits__card--3"),
+    document.querySelector(".benefits__card--4"),
+    document.querySelector(".benefits__card--5"),
+  ];
 
-  if (!benefitsSection || !cardsContainer || cards.length !== 5) return;
+  if (!section || !container || !card1 || sideCards.some((card) => !card))
+    return;
 
-  let isInSection = false;
+  let isActive = false;
   let sectionTop = 0;
+  let sectionHeight = 0;
+  let triggerOffset = 0;
 
-  // Only run animation on screens larger than 768px
-  function shouldRunAnimation() {
+  function shouldAnimate() {
     return window.innerWidth > 768;
   }
 
-  // Set initial height for the section to allow scrolling - only on large screens
-  function updateSectionHeight() {
-    if (shouldRunAnimation()) {
-      const SCROLL_HEIGHT = window.innerHeight * 5;
-      benefitsSection.style.height = `${SCROLL_HEIGHT}px`;
+  function updateSection() {
+    if (shouldAnimate()) {
+      const viewportHeight = window.innerHeight;
+      sectionHeight = viewportHeight * 5;
+      triggerOffset = viewportHeight * 0.3;
+      section.style.height = `${sectionHeight}px`;
     } else {
-      benefitsSection.style.height = ""; // Reset to CSS height for mobile
+      section.style.height = "";
+    }
+  }
+
+  function calculateProgress() {
+    const rect = section.getBoundingClientRect();
+    sectionTop = window.scrollY + rect.top;
+    const scrollInSection = window.scrollY - sectionTop - triggerOffset;
+    const animationHeight = sectionHeight - triggerOffset;
+    return Math.max(0, Math.min(1, scrollInSection / animationHeight));
+  }
+
+  function shouldStartAnimation() {
+    const rect = section.getBoundingClientRect();
+    sectionTop = window.scrollY + rect.top;
+    const scrollInSection = window.scrollY - sectionTop;
+    return scrollInSection >= triggerOffset;
+  }
+
+  function shouldEndAnimation() {
+    const rect = section.getBoundingClientRect();
+    sectionTop = window.scrollY + rect.top;
+    const scrollInSection = window.scrollY - sectionTop;
+    return scrollInSection >= sectionHeight;
+  }
+
+  function animateCard1(progress) {
+    if (progress <= 0.6) {
+      const phase1Progress = progress / 0.6;
+      card1.style.gridColumn = "1 / -1";
+      card1.style.gridRow = "1 / -1";
+      const scale = 1 - phase1Progress * 0.3;
+      card1.style.transform = `scale(${scale})`;
+    } else {
+      card1.style.gridColumn = "2";
+      card1.style.gridRow = "1 / -1";
+      card1.style.transform = "scale(0.7)";
+    }
+  }
+
+  function animateSideCards(progress) {
+    if (progress <= 0.5) {
+      sideCards.forEach((card, index) => {
+        card.style.opacity = "0";
+        if (index < 2) {
+          card.style.transform = "translateX(-100%)";
+        } else {
+          card.style.transform = "translateX(100%)";
+        }
+      });
+    } else {
+      const phase2Progress = (progress - 0.5) / 0.3;
+      sideCards.forEach((card, index) => {
+        card.style.opacity = "1";
+        if (index < 2) {
+          const translateX = -100 + phase2Progress * 100;
+          card.style.transform = `translateX(${translateX}%)`;
+        } else {
+          const translateX = 100 - phase2Progress * 100;
+          card.style.transform = `translateX(${translateX}%)`;
+        }
+      });
     }
   }
 
   function handleScroll() {
-    // Exit early if screen is too small - let CSS handle mobile layout
-    if (!shouldRunAnimation()) {
-      // Reset any applied styles on small screens
-      if (isInSection) {
-        isInSection = false;
-        cardsContainer.style.position = "";
-        cardsContainer.style.top = "";
-        cardsContainer.style.left = "";
-        cardsContainer.style.right = "";
-        cardsContainer.style.height = "";
+    if (!shouldAnimate()) return;
 
-        cards.forEach((card) => {
-          card.style.transform = "";
-          card.style.opacity = "";
-        });
+    if (shouldStartAnimation() && !shouldEndAnimation()) {
+      if (!isActive) {
+        activateSection();
       }
-      return;
+      const progress = calculateProgress();
+      animateCard1(progress);
+      animateSideCards(progress);
+    } else if ((shouldEndAnimation() || !shouldStartAnimation()) && isActive) {
+      deactivateSection();
     }
+  }
 
-    const scrollY = window.scrollY;
-    const rect = benefitsSection.getBoundingClientRect();
-    sectionTop = scrollY + rect.top;
+  function resetLayout() {
+    card1.style.gridColumn = "1 / -1";
+    card1.style.gridRow = "1 / -1";
+    card1.style.transform = "";
 
-    const TRIGGER_OFFSET = window.innerHeight * 0.7;
-    const SCROLL_HEIGHT = window.innerHeight * 5;
-
-    // Check if we're in the section with offset
-    const inSection =
-      scrollY >= sectionTop + TRIGGER_OFFSET &&
-      scrollY <= sectionTop + SCROLL_HEIGHT;
-
-    if (inSection && !isInSection) {
-      // Entering section - fix the container
-      isInSection = true;
-      cardsContainer.style.position = "fixed";
-      cardsContainer.style.top = "12rem";
-      cardsContainer.style.left = "6rem";
-      cardsContainer.style.right = "0";
-      cardsContainer.style.height = "calc(100vh - 16vh)";
-    } else if (!inSection && isInSection) {
-      // Leaving section - reset
-      isInSection = false;
-      cardsContainer.style.position = "";
-      cardsContainer.style.top = "";
-      cardsContainer.style.left = "";
-      cardsContainer.style.right = "";
-      cardsContainer.style.height = "";
-
-      // Reset all transforms
-      cards.forEach((card) => {
-        card.style.transform = "";
-        card.style.opacity = "";
-      });
-      return;
-    }
-
-    if (!isInSection) return;
-
-    // Calculate scroll progress within section
-    const sectionProgress = (scrollY - sectionTop) / SCROLL_HEIGHT;
-    const cardProgress = sectionProgress * 4;
-    const currentCard = Math.floor(cardProgress);
-    const transitionProgress = cardProgress - currentCard;
-
-    // Update cards based on progress
-    cards.forEach((card, index) => {
-      card.style.opacity = "1";
-      if (index === currentCard && currentCard < 4) {
-        // Active card moving down
-        const moveDown = transitionProgress * window.innerHeight;
-        card.style.transform = `translate(-50%, calc(-50% + ${moveDown}px))`;
-      } else if (index === currentCard + 1 && currentCard < 4) {
-        // Next card coming into view
-        const moveUp = (1 - transitionProgress) * -100;
-        card.style.transform = `translate(-50%, calc(-50% + ${moveUp}px))`;
-      } else if (index < currentCard) {
-        // Cards that have moved past
-        card.style.transform = `translate(-50%, calc(-50% + ${window.innerHeight}px))`;
-      } else if (index === 4 && currentCard >= 4) {
-        // Final card stays in view
-        card.style.transform = `translate(-50%, -50%)`;
+    sideCards.forEach((card, index) => {
+      card.style.opacity = "0";
+      if (index < 2) {
+        card.style.transform = "translateX(-100%)";
       } else {
-        // Cards waiting in stack - keep original positioning
-        card.style.transform = "";
+        card.style.transform = "translateX(100%)";
       }
     });
   }
 
-  let ticking = false;
-  function requestTick() {
-    if (!ticking) {
-      requestAnimationFrame(handleScroll);
-      ticking = true;
-      setTimeout(() => {
-        ticking = false;
-      }, 16);
-    }
+  function activateSection() {
+    isActive = true;
+    container.style.position = "fixed";
+    container.style.top = "0";
+    container.style.left = "0";
+    container.style.right = "0";
+    container.style.bottom = "0";
   }
 
-  window.addEventListener("scroll", requestTick, { passive: true });
+  function deactivateSection() {
+    isActive = false;
+    container.style.position = "";
+    container.style.top = "";
+    container.style.left = "";
+    container.style.right = "";
+    container.style.bottom = "";
+    container.style.zIndex = "";
+  }
+
+  window.addEventListener("scroll", handleScroll, { passive: true });
 
   window.addEventListener("resize", () => {
-    updateSectionHeight();
-    // Force a scroll check on resize to handle screen size changes
-    if (!shouldRunAnimation() && isInSection) {
-      handleScroll();
+    updateSection();
+    if (!shouldAnimate() && isActive) {
+      deactivateSection();
+      resetLayout();
     }
   });
 
-  updateSectionHeight();
+  updateSection();
+  resetLayout();
 }
 
 document.addEventListener("DOMContentLoaded", initHome);
