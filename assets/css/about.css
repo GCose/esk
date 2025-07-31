@@ -195,19 +195,15 @@
 }
 
 @media (max-width: 768px) {
-  .hero__container {
-    padding: var(--space-xl) 0;
-  }
-
   .hero__grid > * {
     padding: var(--space-lg) var(--space-sm);
   }
 
   .hero__quote-text {
-    font-size: var(--font-body-md);
     text-align: left;
     border-left-width: 3px;
     padding-left: var(--space-sm);
+    font-size: var(--font-body-md);
   }
 
   .hero__quote-context {
