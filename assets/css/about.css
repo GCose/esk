@@ -232,10 +232,8 @@
   position: relative;
   grid-template-rows: var(--border-width) auto;
   grid-template-columns:
-    0.4fr var(--border-width) 2.5fr var(--border-width) 1.5fr var(
-      --border-width
-    )
-    1fr var(--border-width) 0.8fr;
+    0 0 2.5fr var(--border-width) 1.5fr var(--border-width)
+    1.5fr var(--border-width) 0.8fr;
 }
 
 .today__grid-line-v1 {
@@ -415,6 +413,7 @@
 }
 
 .today__feature-image {
+  z-index: 2;
   grid-row: 2;
   height: 40%;
   align-self: start;
@@ -504,5 +503,301 @@
 
   .today__service-flow-item {
     padding: var(--space-xs);
+  }
+}
+
+/**=======================
+ * BELIEFS SECTION STYLES
+ ========================*/
+.beliefs {
+  width: 100vw;
+  position: relative;
+  background: var(--color-light);
+}
+
+.beliefs__container {
+  padding: 0;
+  margin: 0 0 0 var(--sidebar-width-xl);
+}
+
+.beliefs__grid {
+  gap: 0;
+  display: grid;
+  min-height: 100vh;
+  position: relative;
+  grid-template-rows: var(--border-width) auto;
+  grid-template-columns:
+    0 0 2.5fr var(--border-width) 1.5fr var(--border-width)
+    1fr var(--border-width) 0.8fr;
+}
+
+.beliefs__grid-line-v1 {
+  z-index: 1;
+  grid-column: 2;
+  grid-row: 1 / -1;
+  background: var(--color-gray-300);
+}
+
+.beliefs__grid-line-v2 {
+  z-index: 1;
+  grid-column: 4;
+  grid-row: 1 / -1;
+  background: var(--color-gray-300);
+}
+
+.beliefs__grid-line-v3 {
+  z-index: 1;
+  grid-column: 6;
+  grid-row: 1 / -1;
+  background: var(--color-gray-300);
+}
+
+.beliefs__grid-line-v4 {
+  z-index: 1;
+  grid-column: 8;
+  grid-row: 1 / -1;
+  background: var(--color-gray-300);
+}
+
+.beliefs__grid-line-h1 {
+  grid-row: 1;
+  grid-column: 1 / -1;
+  height: var(--border-width);
+  background: var(--color-gray-300);
+}
+
+/**=======================
+ * MAGAZINE SPREAD LAYOUT
+ ========================*/
+.beliefs__magazine-spread {
+  grid-row: 2;
+  display: grid;
+  grid-column: 3 / 7;
+  background: var(--color-light);
+  gap: var(--space-responsive-xl);
+  grid-template-rows: auto auto auto;
+  padding: var(--space-xl) var(--space-lg);
+}
+
+.beliefs__header-section {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.beliefs__philosophy-statement {
+  margin: 0;
+  display: grid;
+  justify-content: center;
+}
+
+.beliefs__main-quote {
+  margin: 0;
+  font-weight: 800;
+  line-height: 1.3;
+  text-align: left;
+  position: relative;
+  letter-spacing: -0.01em;
+  color: var(--color-dark);
+  text-transform: uppercase;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.beliefs__editorial-content {
+  display: grid;
+}
+
+.beliefs__content-columns {
+  display: grid;
+  align-items: start;
+  gap: var(--space-responsive-xl);
+  grid-template-columns: 1.2fr 0.8fr;
+}
+
+.beliefs__content-column-1 {
+  display: grid;
+  gap: var(--space-responsive-md);
+}
+
+.beliefs__principles {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.beliefs__principle-text {
+  margin: 0;
+  font-weight: 500;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--color-gray-700);
+  padding-left: var(--space-md);
+  font-size: var(--font-body-xl);
+  transition: all var(--transition-base);
+  border-left: 3px solid var(--color-gray-300);
+}
+
+.beliefs__principle-text:hover {
+  color: var(--color-dark);
+  padding-left: var(--space-lg);
+  border-left-color: var(--color-dark);
+}
+
+.beliefs__content-column-2 {
+  display: grid;
+  gap: var(--space-md);
+  padding-left: var(--space-lg);
+  border-left: 2px solid var(--color-gray-300);
+}
+
+.beliefs__impact-headline {
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  color: var(--color-dark);
+  text-transform: uppercase;
+  margin: 0 0 var(--space-md) 0;
+  font-size: var(--font-title-md);
+}
+
+.beliefs__impact-grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.beliefs__impact-item {
+  display: grid;
+  gap: var(--space-xs);
+  padding: var(--space-sm);
+  border-bottom: 1px solid transparent;
+  transition: all var(--transition-base);
+}
+
+.beliefs__impact-item:hover {
+  background: rgba(0, 0, 0, 0.02);
+  border-bottom-color: var(--color-gray-400);
+}
+
+.beliefs__impact-title {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  color: var(--color-dark);
+  text-transform: uppercase;
+  font-size: var(--font-body-lg);
+  transition: color var(--transition-base);
+}
+
+.beliefs__impact-item:hover .beliefs__impact-title {
+  color: var(--color-gray-900);
+}
+
+.beliefs__impact-detail {
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.3;
+  text-transform: uppercase;
+  color: var(--color-gray-600);
+  font-size: var(--font-body-sm);
+  transition: color var(--transition-base);
+}
+
+.beliefs__impact-item:hover .beliefs__impact-detail {
+  color: var(--color-gray-700);
+}
+
+.beliefs__feature-image {
+  grid-row: 2;
+  overflow: hidden;
+  align-self: start;
+  position: relative;
+  grid-column: 7 / -1;
+  margin-top: var(--space-xl);
+}
+
+.beliefs .section-sidebar__esk-left {
+  background: var(--color-light);
+  width: var(--sidebar-width-lg);
+}
+
+.beliefs .section-sidebar__esk-right {
+  width: var(--sidebar-width-xl);
+  background: var(--color-light);
+}
+
+.beliefs .section-sidebar__text {
+  color: var(--color-dark);
+}
+
+/**=====================
+ * BREAKPOINTS STYLES
+ =====================*/
+@media (max-width: 1200px) {
+  .beliefs__container {
+    margin: 0;
+  }
+
+  .beliefs__grid {
+    display: block;
+    min-height: auto;
+  }
+
+  .beliefs__grid > * {
+    width: 100%;
+    min-height: auto;
+    padding: var(--space-lg) var(--space-md);
+    border-bottom: var(--border-width) solid var(--color-gray-300);
+  }
+
+  .beliefs__grid-line-v1,
+  .beliefs__grid-line-v2,
+  .beliefs__grid-line-v3,
+  .beliefs__grid-line-v4,
+  .beliefs__grid-line-h1 {
+    display: none;
+  }
+
+  .beliefs__content-columns {
+    gap: var(--space-lg);
+    grid-template-columns: 1fr;
+  }
+
+  .beliefs__content-column-2 {
+    padding-left: 0;
+    border-left: none;
+    padding-top: var(--space-lg);
+    border-top: 2px solid var(--color-gray-300);
+  }
+
+  .beliefs__feature-image {
+    min-height: 40vh;
+    margin-top: 0;
+  }
+
+  .beliefs__main-quote {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .beliefs__container {
+    padding: var(--space-xl) 0;
+  }
+
+  .beliefs__grid > * {
+    padding: var(--space-lg) var(--space-sm);
+  }
+
+  .beliefs__main-quote {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+
+  .beliefs__main-quote::before {
+    font-size: 6rem;
+    top: -1.5rem;
+    left: -1rem;
+  }
+
+  .beliefs__principle-text {
+    font-size: var(--font-body-lg);
   }
 }
