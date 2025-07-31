@@ -771,6 +771,7 @@ img {
 
 .cta__image {
   grid-row: 2;
+  height: 100vh;
   grid-column: 5;
   overflow: hidden;
   position: relative;
