@@ -1020,7 +1020,6 @@
   grid-column: 1 / -1;
 }
 
-
 .benefits__card--2 {
   opacity: 0;
   grid-row: 1;
@@ -1071,10 +1070,11 @@
 
 .benefits__card-content {
   height: 15%;
+  width: 100%;
   display: flex;
+  padding: 0 1rem;
   flex-direction: column;
   justify-content: center;
-  padding: var(--space-lg);
   background: var(--color-light);
 }
 
@@ -1093,7 +1093,7 @@
   line-height: 1.4;
   text-transform: uppercase;
   color: var(--color-gray-600);
-  font-size: var(--font-body-sm);
+  font-size: var(--font-body-md);
 }
 
 /**====================
