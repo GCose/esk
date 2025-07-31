@@ -313,8 +313,8 @@ img {
   width: 100vw;
   height: 100vh;
   display: grid;
-  z-index: 10000;
   position: fixed;
+  z-index: 10000000;
   place-items: center;
   background: var(--color-dark);
   transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
