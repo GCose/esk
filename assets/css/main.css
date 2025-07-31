@@ -98,6 +98,28 @@ img {
   max-width: 100%;
 }
 
+/**=========================
+ * CUSTOM SCROLLBAR STYLES
+ ==========================*/
+::-webkit-scrollbar {
+  width: 0.7rem;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10rem;
+  background: var(--color-gray-400);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-light);
+}
+
+::selection {
+  color: var(--color-light);
+  background-color: var(--color-dark);
+}
+
 /**=================
  * CURSOR STYLES
  ==================*/
@@ -801,6 +823,11 @@ img {
   .cta__buttons {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .cta__accent-text {
+    transform: rotate(0deg);
+    writing-mode: horizontal-tb;
   }
 }
 
