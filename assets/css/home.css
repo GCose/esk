@@ -391,6 +391,7 @@
   flex-direction: column;
   justify-content: center;
   background: var(--color-dark);
+  border-right: 1px solid var(--color-gray-600);
   padding: var(--space-responsive-xl) var(--space-responsive-lg);
 }
 
@@ -499,6 +500,7 @@
   justify-content: center;
   background: var(--color-dark);
   padding: var(--space-responsive-md);
+  border-left: 1px solid var(--color-gray-600);
 }
 
 .services__accent-text {
