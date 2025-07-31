@@ -1141,11 +1141,13 @@
   }
 
   .benefits__card-image {
-    height: 200px;
+    height: 80%;
   }
 
   .benefits__card-content {
-    height: auto;
+    height: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 }
 
