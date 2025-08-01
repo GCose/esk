@@ -461,11 +461,27 @@
                 </p>
               </div>
               <div class="process__image">
-                <img
-                  alt="Installation"
-                  class="image__full"
-                  src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                />
+                <picture id="servicesImage">
+                  <source
+                    type="image/avif"
+                    id="servicesImageAvif"
+                    srcset="
+                      /assets/images/home-page/process-section/process-4/process-4.avif
+                    "
+                  />
+                  <source
+                    type="image/webp"
+                    id="servicesImageWebp"
+                    srcset="
+                      /assets/images/home-page/process-section/process-4/process-4.webp
+                    "
+                  />
+                  <img
+                    alt="Installation"
+                    class="image__full"
+                    src="/assets/images/home-page/process-section/process-4/process-4.jpg"
+                  />
+                </picture>
               </div>
             </div>
           </div>
