@@ -249,7 +249,7 @@
   z-index: 1;
   grid-column: 4;
   grid-row: 1 / -1;
-  background: var(--color-gray-800);
+  background: transparent;
 }
 
 .today__grid-line-v3 {
