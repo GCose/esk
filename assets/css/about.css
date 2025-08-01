@@ -833,9 +833,9 @@
   }
 }
 
-/**===========================
- * WEST AFRICA VISION STYLES
- ============================*/
+/**===============
+ * VISION STYLES
+ ================*/
 .vision {
   width: 100vw;
   position: relative;
@@ -851,7 +851,16 @@
   width: 100%;
   display: grid;
   align-items: center;
-  grid-template-columns: 1.2fr 1fr 100px;
+  grid-template-columns: 100px 1.2fr 1fr 100px;
+}
+
+.vision__accent-left {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  background: var(--color-gray-900);
+  border-top: var(--border-width) solid var(--color-gray-800);
+  border-right: var(--border-width) solid var(--color-gray-800);
 }
 
 .vision__content {
@@ -914,18 +923,20 @@
   font-size: var(--font-display-md);
 }
 
-.vision .section-sidebar__esk-left {
-  background: var(--color-dark);
-  width: var(--sidebar-width-lg);
-  border-right: 1px solid var(--color-gray-800);
-}
-
 /**=====================
  * BREAKPOINTS STYLES
  =====================*/
 @media (max-width: 1200px) {
   .vision__spread {
     display: block;
+  }
+
+  .vision__accent-left {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    padding: var(--space-responsive-xl);
+    border-bottom: var(--border-width) solid var(--color-gray-800);
   }
 
   .vision__content {
