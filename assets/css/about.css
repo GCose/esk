@@ -211,9 +211,9 @@
   }
 }
 
-/**==================
+/**======================
  * TODAY SECTION STYLES
- ===================*/
+ =======================*/
 .today {
   width: 100vw;
   position: relative;
@@ -232,7 +232,9 @@
   position: relative;
   grid-template-rows: var(--border-width) auto;
   grid-template-columns:
-    0 0 2.5fr var(--border-width) 1.5fr var(--border-width)
+    0.4fr var(--border-width) 2.5fr var(--border-width) 1.5fr var(
+      --border-width
+    )
     1.5fr var(--border-width) 0.8fr;
 }
 
@@ -792,9 +794,9 @@
   }
 
   .beliefs__main-quote::before {
-    font-size: 6rem;
-    top: -1.5rem;
     left: -1rem;
+    top: -1.5rem;
+    font-size: 6rem;
   }
 
   .beliefs__principle-text {
