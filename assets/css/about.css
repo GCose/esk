@@ -216,7 +216,6 @@
  =======================*/
 .today {
   width: 100vw;
-  height: 107vh;
   position: relative;
   background: var(--color-dark);
 }
@@ -439,11 +438,11 @@
 
 .today__feature-image-2 {
   left: 0;
-  bottom: 0;
   width: 100%;
   height: 35%;
   overflow: hidden;
   position: absolute;
+  bottom: var(--space-xl);
 }
 
 .today .section-sidebar__esk-left {
