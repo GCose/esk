@@ -646,8 +646,33 @@
 .beliefs__content-column-2 {
   display: grid;
   gap: var(--space-md);
-  padding-left: var(--space-lg);
-  border-left: 2px solid var(--color-gray-300);
+}
+
+.beliefs__secondary-image {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  position: relative;
+}
+
+.beliefs__feature-column {
+  grid-row: 2;
+  display: grid;
+  align-self: start;
+  grid-column: 7 / -1;
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+  grid-template-rows: 1fr auto;
+}
+
+.beliefs__feature-image {
+  width: 100%;
+  position: relative;
+}
+
+.beliefs__impact-statement {
+  display: grid;
+  gap: var(--space-md);
 }
 
 .beliefs__impact-headline {
@@ -707,15 +732,6 @@
   color: var(--color-gray-700);
 }
 
-.beliefs__feature-image {
-  grid-row: 2;
-  overflow: hidden;
-  align-self: start;
-  position: relative;
-  grid-column: 7 / -1;
-  margin-top: var(--space-xl);
-}
-
 .beliefs .section-sidebar__esk-left {
   background: var(--color-light);
   width: var(--sidebar-width-lg);
@@ -763,16 +779,19 @@
     grid-template-columns: 1fr;
   }
 
-  .beliefs__content-column-2 {
-    padding-left: 0;
-    border-left: none;
-    padding-top: var(--space-lg);
-    border-top: 2px solid var(--color-gray-300);
+  .beliefs__secondary-image {
+    min-height: 250px;
+    order: 2;
   }
 
-  .beliefs__feature-image {
-    min-height: 40vh;
+  .beliefs__content-column-1 {
+    order: 1;
+  }
+
+  .beliefs__feature-column {
     margin-top: 0;
+    min-height: 40vh;
+    gap: var(--space-md);
   }
 
   .beliefs__main-quote {
@@ -793,13 +812,159 @@
     font-size: clamp(2rem, 4vw, 3rem);
   }
 
-  .beliefs__main-quote::before {
-    left: -1rem;
-    top: -1.5rem;
-    font-size: 6rem;
+  .beliefs__principle-text {
+    font-size: var(--font-body-lg);
   }
 
-  .beliefs__principle-text {
+  .beliefs__secondary-image {
+    min-height: 200px;
+  }
+
+  .beliefs__feature-column {
+    gap: var(--space-md);
+  }
+
+  .beliefs__feature-image {
+    min-height: 200px;
+  }
+
+  .beliefs__impact-headline {
+    font-size: var(--font-body-xl);
+  }
+}
+
+/**===========================
+ * WEST AFRICA VISION STYLES
+ ============================*/
+.vision {
+  width: 100vw;
+  position: relative;
+  background: var(--color-dark);
+  border-bottom: var(--border-width) solid var(--color-gray-800);
+}
+
+.vision__container {
+  position: relative;
+}
+
+.vision__spread {
+  width: 100%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1.2fr 1fr 100px;
+}
+
+.vision__content {
+  display: grid;
+  background: var(--color-dark);
+  gap: var(--space-responsive-lg);
+  padding: var(--space-responsive-3xl);
+  border-top: var(--border-width) solid var(--color-gray-800);
+}
+
+.vision__content .section__subtitle {
+  color: var(--color-gray-400);
+}
+
+.vision__content .section__title {
+  margin-bottom: 0;
+  color: var(--color-light);
+}
+
+.vision__content .body__text {
+  line-height: 2;
+  color: var(--color-gray-300);
+}
+
+.vision__quote {
+  font-weight: 600;
+  line-height: 1.4;
+  font-style: italic;
+  color: var(--color-light);
+  margin: var(--space-lg) 0 0 0;
+  padding-left: var(--space-lg);
+  font-size: var(--font-body-xl);
+  border-left: 3px solid var(--color-light);
+}
+
+.vision__image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  border-top: var(--border-width) solid var(--color-gray-800);
+}
+
+.vision__accent-right {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  background: var(--color-gray-900);
+  border-top: var(--border-width) solid var(--color-gray-800);
+  border-left: var(--border-width) solid var(--color-gray-800);
+}
+
+.vision__accent-text {
+  font-weight: 500;
+  line-height: 0.8;
+  letter-spacing: 0.1em;
+  transform: rotate(180deg);
+  writing-mode: vertical-rl;
+  color: var(--color-gray-600);
+  font-size: var(--font-display-md);
+}
+
+.vision .section-sidebar__esk-left {
+  background: var(--color-dark);
+  width: var(--sidebar-width-lg);
+  border-right: 1px solid var(--color-gray-800);
+}
+
+/**=====================
+ * BREAKPOINTS STYLES
+ =====================*/
+@media (max-width: 1200px) {
+  .vision__spread {
+    display: block;
+  }
+
+  .vision__content {
+    width: 100%;
+    padding: var(--space-responsive-3xl) var(--space-responsive-2xl);
+  }
+
+  .vision__image {
+    width: 100%;
+    min-height: 50vh;
+    border-top: var(--border-width) solid var(--color-gray-800);
+  }
+
+  .vision__accent-right {
+    width: 100%;
+    height: auto;
+    border-left: none;
+    padding: var(--space-responsive-xl);
+    border-bottom: var(--border-width) solid var(--color-gray-800);
+  }
+
+  .vision__accent-text {
+    transform: rotate(0deg);
+    writing-mode: horizontal-tb;
+    font-size: var(--space-responsive-xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .vision__content {
+    padding: var(--space-responsive-2xl) var(--space-responsive-lg);
+  }
+
+  .vision__image {
+    min-height: 40vh;
+  }
+
+  .vision__quote {
+    padding-left: var(--space-md);
     font-size: var(--font-body-lg);
   }
 }
