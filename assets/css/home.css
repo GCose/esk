@@ -587,7 +587,8 @@
   text-align: center;
   background: var(--color-light);
   border-bottom: var(--border-width) solid var(--color-gray-300);
-  padding: var(--space-responsive-3xl) var(--space-responsive-xl);
+  padding: var(--space-responsive-lg) var(--space-responsive-xl)
+    var(--space-responsive-lg);
 }
 
 .process__header .section__subtitle {
