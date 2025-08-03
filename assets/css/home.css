@@ -543,7 +543,7 @@
   min-height: 100vh;
   position: relative;
   grid-template-rows: var(--border-width) auto auto auto;
-  grid-template-columns: 2fr var(--border-width) 2fr var(--border-width) 0.4fr;
+  grid-template-columns: 0.4fr var(--border-width) 2fr var(--border-width) 2fr;
 }
 
 .process__grid-line-v1 {
@@ -565,9 +565,30 @@
   background: var(--color-gray-300);
 }
 
+.process__accent {
+  display: grid;
+  grid-column: 1;
+  grid-row: 2 / -1;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-light);
+  padding: var(--space-responsive-md);
+  border-right: var(--border-width) solid var(--color-gray-300);
+}
+
+.process__accent-text {
+  font-weight: 500;
+  line-height: 0.8;
+  letter-spacing: 0.1em;
+  transform: rotate(180deg);
+  writing-mode: vertical-rl;
+  color: var(--color-accent-muted);
+  font-size: var(--font-display-md);
+}
+
 .process__header {
   grid-row: 2;
-  grid-column: 1 / 4;
+  grid-column: 3 / -1;
   text-align: center;
   background: var(--color-light);
   border-bottom: var(--border-width) solid var(--color-gray-300);
@@ -587,7 +608,7 @@
 .process__narrative {
   grid-row: 3;
   display: grid;
-  grid-column: 1 / 4;
+  grid-column: 3 / -1;
   grid-template-rows: 1fr 1fr;
   background: var(--color-light);
 }
@@ -675,27 +696,6 @@
   border-right: var(--border-width) solid var(--color-gray-300);
 }
 
-.process__accent {
-  display: grid;
-  grid-column: 5;
-  grid-row: 2 / -1;
-  align-items: center;
-  justify-content: center;
-  background: var(--color-light);
-  padding: var(--space-responsive-md);
-  border-left: var(--border-width) solid var(--color-gray-300);
-}
-
-.process__accent-text {
-  font-weight: 500;
-  line-height: 0.8;
-  letter-spacing: 0.1em;
-  transform: rotate(180deg);
-  writing-mode: vertical-rl;
-  color: var(--color-accent-muted);
-  font-size: var(--font-display-md);
-}
-
 /**====================
  * BREAKPOINTS STYLES
  ====================*/
@@ -709,6 +709,17 @@
   .process__grid-line-v2,
   .process__grid-line-h1 {
     display: none;
+  }
+
+  .process__accent {
+    border-right: none;
+    padding: var(--space-responsive-xl);
+    border-bottom: var(--border-width) solid var(--color-gray-300);
+  }
+
+  .process__accent-text {
+    transform: rotate(0deg);
+    writing-mode: horizontal-tb;
   }
 
   .process__header {
@@ -738,17 +749,6 @@
 
   .process__phase-image {
     min-height: 40vh;
-  }
-
-  .process__accent {
-    border-left: none;
-    padding: var(--space-responsive-xl);
-    border-top: var(--border-width) solid var(--color-gray-300);
-  }
-
-  .process__accent-text {
-    transform: rotate(0deg);
-    writing-mode: horizontal-tb;
   }
 }
 
