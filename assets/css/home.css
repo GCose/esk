@@ -586,8 +586,8 @@
   grid-column: 1 / 4;
   text-align: center;
   background: var(--color-light);
-  padding: var(--space-responsive-3xl) var(--space-responsive-xl);
   border-bottom: var(--border-width) solid var(--color-gray-300);
+  padding: var(--space-responsive-3xl) var(--space-responsive-xl);
 }
 
 .process__header .section__subtitle {
@@ -595,16 +595,16 @@
 }
 
 .process__header .section__title {
-  color: var(--color-dark);
   margin-bottom: 0;
+  color: var(--color-dark);
 }
 
 .process__narrative {
   grid-row: 3;
-  grid-column: 1 / 4;
   display: grid;
-  background: var(--color-light);
+  grid-column: 1 / 4;
   grid-template-rows: 1fr 1fr;
+  background: var(--color-light);
 }
 
 .process__planning {
@@ -620,8 +620,8 @@
 
 .process__phase-content {
   display: grid;
-  gap: var(--space-responsive-lg);
   align-content: center;
+  gap: var(--space-responsive-lg);
   padding: var(--space-responsive-3xl) var(--space-responsive-xl);
 }
 
@@ -631,8 +631,8 @@
   letter-spacing: 0.05em;
   color: var(--color-dark);
   text-transform: uppercase;
-  font-size: var(--font-title-lg);
   margin-bottom: var(--space-lg);
+  font-size: var(--font-title-lg);
 }
 
 .process__steps {
@@ -648,8 +648,8 @@
 }
 
 .process__step-number {
-  font-weight: 800;
   line-height: 1;
+  font-weight: 800;
   color: var(--color-gray-400);
   font-size: var(--font-body-lg);
 }
@@ -691,9 +691,9 @@
 }
 
 .process__accent {
-  grid-row: 2 / -1;
   display: grid;
   grid-column: 5;
+  grid-row: 2 / -1;
   align-items: center;
   justify-content: center;
   background: var(--color-light);
@@ -727,8 +727,8 @@
   }
 
   .process__header {
-    padding: var(--space-responsive-2xl) var(--space-responsive-lg);
     border-bottom: var(--border-width) solid var(--color-gray-300);
+    padding: var(--space-responsive-2xl) var(--space-responsive-lg);
   }
 
   .process__narrative {
@@ -756,8 +756,8 @@
   }
 
   .process__accent {
-    padding: var(--space-responsive-xl);
     border-left: none;
+    padding: var(--space-responsive-xl);
     border-top: var(--border-width) solid var(--color-gray-300);
   }
 
@@ -781,8 +781,8 @@
   }
 
   .process__step {
-    grid-template-columns: 1fr;
     gap: var(--space-sm);
+    grid-template-columns: 1fr;
   }
 
   .process__step-number {
