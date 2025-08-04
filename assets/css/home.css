@@ -592,7 +592,6 @@
   text-align: center;
   grid-column: 3 / -1;
   background: var(--color-light);
-  border-bottom: var(--border-width) solid var(--color-gray-300);
   padding: var(--space-responsive-lg) var(--space-responsive-xl)
     var(--space-responsive-lg);
 }
@@ -612,6 +611,7 @@
   grid-column: 3 / -1;
   grid-template-rows: 1fr 1fr;
   background: var(--color-light);
+  border-top: var(--border-width) solid var(--color-gray-300);
 }
 
 .process__planning {
