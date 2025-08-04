@@ -856,8 +856,7 @@ img {
 .footer__container {
   margin: 0 auto;
   max-width: 1400px;
-  padding: var(--space-responsive-3xl) var(--space-responsive-2xl)
-    var(--space-responsive-sm);
+  padding: var(--space-responsive-3xl) 1rem;
 }
 
 .footer__grid {
