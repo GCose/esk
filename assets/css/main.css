@@ -854,14 +854,15 @@ img {
 .footer__container {
   margin: 0 auto;
   max-width: 1400px;
-  padding: var(--space-responsive-3xl) var(--space-responsive-2xl);
+  padding: var(--space-responsive-3xl) var(--space-responsive-2xl)
+    var(--space-responsive-sm);
 }
 
 .footer__grid {
   display: grid;
   align-items: start;
-  gap: var(--space-responsive-2xl);
   grid-template-columns: 1fr 2fr;
+  gap: var(--space-responsive-2xl);
 }
 
 .footer__brand {
@@ -945,7 +946,7 @@ img {
   width: 100%;
   height: var(--border-width);
   background: var(--color-gray-800);
-  margin-bottom: var(--space-responsive-xl);
+  margin-bottom: var(--space-responsive-sm);
 }
 
 .footer__bottom-content {
