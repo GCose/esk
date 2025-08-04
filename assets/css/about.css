@@ -502,8 +502,9 @@
 }
 
 @media (max-width: 768px) {
-  .team__container {
-    padding: var(--space-xl) 0;
+  .team__accent-text {
+    transform: rotate(0deg);
+    writing-mode: horizontal-tb;
   }
 
   .team__grid > * {
