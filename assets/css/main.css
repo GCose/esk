@@ -978,7 +978,7 @@ img {
   color: var(--color-light);
 }
 
-.footer__contact-label {
+.footer__contact-label .footer__contact-item {
   color: var(--color-light);
 }
 
