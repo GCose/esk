@@ -978,6 +978,10 @@ img {
   color: var(--color-light);
 }
 
+.footer__contact-label {
+  color: var(--color-light);
+}
+
 /**=====================
  * BREAKPOINTS STYLES
  =====================*/
