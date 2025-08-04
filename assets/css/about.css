@@ -631,6 +631,7 @@
 
 .beliefs__philosophy-statement {
   margin: 0;
+  z-index: 2;
   display: grid;
   justify-content: center;
 }

@@ -357,7 +357,7 @@ img {
   padding: var(--space-xs) 2rem;
 }
 
-.logo {
+.logo a {
   color: white;
   font-weight: 600;
   font-size: 1.5rem;
