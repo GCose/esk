@@ -16,7 +16,7 @@ function initLoadingScreen() {
 
   setTimeout(() => {
     loadingScreen.classList.add("slide-up");
-  }, 2000);
+  }, 3000);
 }
 
 /**======================

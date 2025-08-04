@@ -311,8 +311,8 @@ img {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
   display: grid;
+  height: 100vh;
   position: fixed;
   z-index: 10000000;
   place-items: center;
@@ -324,13 +324,166 @@ img {
   transform: translateY(-100%);
 }
 
+.loading__grid-container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  position: relative;
+  place-items: center;
+}
+
+/**===================
+ * LOADING GRID LINES
+ ====================*/
+.loading__grid-line {
+  opacity: 0;
+  position: absolute;
+  background: var(--color-gray-800);
+}
+
+.loading__grid-line--v1 {
+  top: 20%;
+  left: 20%;
+  height: 0;
+  width: var(--border-width);
+  animation: drawVertical 0.8s ease-out 0.2s forwards;
+}
+
+.loading__grid-line--v2 {
+  top: 20%;
+  right: 20%;
+  height: 0;
+  width: var(--border-width);
+  animation: drawVertical 0.8s ease-out 0.4s forwards;
+}
+
+.loading__grid-line--v3 {
+  top: 20%;
+  left: 50%;
+  width: var(--border-width);
+  height: 0;
+  transform: translateX(-50%);
+  animation: drawVertical 0.8s ease-out 0.6s forwards;
+}
+
+.loading__grid-line--h1 {
+  top: 30%;
+  left: 20%;
+  width: 0;
+  height: var(--border-width);
+  animation: drawHorizontal 0.8s ease-out 0.8s forwards;
+}
+
+.loading__grid-line--h2 {
+  width: 0;
+  left: 20%;
+  bottom: 30%;
+  height: var(--border-width);
+  animation: drawHorizontal 0.8s ease-out 1s forwards;
+}
+
+/**===================
+ * LOADING CONTENT
+ ====================*/
+.loading__content {
+  z-index: 2;
+  display: grid;
+  position: relative;
+  text-align: center;
+  place-items: center;
+  gap: var(--space-md);
+}
+
 .loading__text {
+  opacity: 0;
   font-weight: 600;
   letter-spacing: 0.3em;
   color: var(--color-light);
   text-transform: uppercase;
   font-size: var(--font-display-xl);
-  animation: pulse 2s ease-in-out infinite;
+  animation: fadeInText 0.6s ease-out 1.2s forwards;
+}
+
+.loading__message {
+  opacity: 0;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-gray-400);
+  font-size: var(--font-body-lg);
+  animation: fadeInMessage 0.6s ease-out 1.6s forwards;
+}
+
+/**===================
+ * LOADING ANIMATIONS
+ ====================*/
+@keyframes drawVertical {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: 60vh;
+    opacity: 1;
+  }
+}
+
+@keyframes drawHorizontal {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 60vw;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInMessage {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/**===================
+ * RESPONSIVE STYLES
+ ====================*/
+@media (max-width: 768px) {
+  .loading__text {
+    font-size: var(--font-display-lg);
+  }
+
+  .loading__message {
+    max-width: 80vw;
+    font-size: var(--font-body-md);
+  }
+
+  .loading__grid-line--v1,
+  .loading__grid-line--v2,
+  .loading__grid-line--v3 {
+    height: 50vh;
+  }
+
+  .loading__grid-line--h1,
+  .loading__grid-line--h2 {
+    width: 70vw;
+  }
 }
 
 /**===================
