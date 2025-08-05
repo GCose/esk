@@ -295,43 +295,6 @@
   font-size: var(--font-body-sm);
 }
 
-/**===================
- * PATTERN SEPARATOR
- ====================*/
-.gallery__separator {
-  width: 100%;
-  display: grid;
-  min-height: 200px;
-  position: relative;
-  place-items: center;
-  grid-column: 1 / -1;
-  background: var(--color-gray-100);
-  border: 1px solid var(--color-gray-300);
-  margin-bottom: var(--space-responsive-2xl);
-}
-
-.gallery__separator-content {
-  text-align: center;
-}
-
-.gallery__separator-title {
-  margin: 0;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  color: var(--color-dark);
-  text-transform: uppercase;
-  margin-bottom: var(--space-sm);
-  font-size: var(--font-title-md);
-}
-
-.gallery__separator-text {
-  margin: 0;
-  font-weight: 400;
-  text-transform: uppercase;
-  color: var(--color-gray-600);
-  font-size: var(--font-body-md);
-}
-
 .gallery .section-sidebar__esk-left {
   width: 0.75rem;
   background: var(--color-dark);
@@ -376,9 +339,5 @@
 
   .gallery__image-container {
     height: 400px;
-  }
-
-  .gallery__separator {
-    min-height: 150px;
   }
 }
