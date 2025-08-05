@@ -105,9 +105,6 @@
 /**=====================
  * BREAKPOINTS STYLES
  =====================*/
-@media (max-width: 1200px) {
-}
-
 @media (max-width: 768px) {
   .hero {
     height: 25vh;
