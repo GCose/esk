@@ -53,27 +53,31 @@
 
 .hero__content {
   grid-row: 2;
-  display: grid;
+  display: flex;
   text-align: center;
-  place-items: center;
+  align-items: center;
   grid-column: 1 / -1;
+  flex-direction: column;
+  justify-content: center;
   background: transparent;
 }
 
 .hero__title {
   margin: 0;
   z-index: 2;
+  padding: 0;
   font-weight: 500;
   background: inherit;
   letter-spacing: -0.01em;
   color: var(--color-light);
   text-transform: uppercase;
   background: var(--color-dark);
-  font-size: var(--font-display-lg);
+  font-size: clamp(1.5rem, 7vw, 8rem);
 }
 
 .hero__subtitle {
   margin: 0;
+  padding: 0;
   font-weight: 400;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -102,26 +106,7 @@
  * BREAKPOINTS STYLES
  =====================*/
 @media (max-width: 1200px) {
-  .hero__container {
-    margin: 0;
-  }
-
-  .hero__grid {
-    height: 30vh;
-    display: block;
-  }
-
-  .hero__grid-line-v1,
-  .hero__grid-line-v2,
-  .hero__grid-line-v3,
-  .hero__grid-line-h1 {
-    display: none;
-  }
-
-  .hero__content {
-    height: 30vh;
-    border-bottom: var(--border-width) solid var(--color-gray-600);
-  }
+  
 }
 
 @media (max-width: 768px) {
@@ -315,19 +300,12 @@
  * BREAKPOINTS STYLES
  =====================*/
 @media (max-width: 1200px) {
-  .gallery__container {
-    margin: 0;
-  }
-
-  .gallery__grid-line-v1,
-  .gallery__grid-line-v2,
-  .gallery__grid-line-v3,
-  .gallery__grid-line-h1 {
-    display: none;
+  .gallery__grid {
+    border-top: 0;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 968px) {
   .gallery__pattern-row {
     gap: 0;
     display: block;
@@ -335,6 +313,7 @@
 
   .gallery__item {
     margin-bottom: var(--space-lg);
+    border-bottom: var(--border-width) solid var(--color-gray-600);
   }
 
   .gallery__image-container {
