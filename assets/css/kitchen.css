@@ -308,7 +308,8 @@
 @media (max-width: 968px) {
   .gallery__pattern-row--1,
   .gallery__pattern-row--2,
-  .gallery__pattern-row--3 {
+  .gallery__pattern-row--3,
+  .gallery__pattern-row--4 {
     border-bottom: 0;
   }
 
