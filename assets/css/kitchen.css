@@ -243,6 +243,7 @@
   height: 600px;
   overflow: hidden;
   position: relative;
+  border: 1px solid var(--color-gray-800);
 }
 
 .gallery__image {
